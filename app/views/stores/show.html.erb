@@ -1,0 +1,18 @@
+<h1><%= @store.name %></h1>
+<p>星評価: <%= @store.rating %></p>
+<p>営業時間: <%= @store.hours %></p>
+
+<%= link_to '戻る', stores_path %>
+
+<h2>レビュー一覧</h2>
+<%= link_to '新しいレビューを投稿する', new_store_review_path(@store) %>
+
+<ul>
+  <% @store.reviews.each do |review| %>
+    <li>
+      <h3><%= review.title %></h3>
+      <p><%= review.body %></p>
+      <p>評価: <%= review.rating %></p>
+    </li>
+  <% end %>
+</ul>

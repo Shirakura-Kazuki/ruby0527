@@ -1,0 +1,24 @@
+<h1>新しいレビューを投稿する</h1>
+
+<%= form_with model: [@store, @review], local: true do |form| %>
+  <div>
+    <%= form.label :title, 'タイトル' %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body, '本文' %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.label :rating, '評価' %>
+    <%= form.number_field :rating, step: 1, min: 1, max: 5 %>
+  </div>
+
+  <div>
+    <%= form.submit '投稿する' %>
+  </div>
+  
+<% end %>
+<%= link_to '戻る', store_path(@store) %>

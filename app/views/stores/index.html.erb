@@ -1,0 +1,18 @@
+<%= image_tag 'header.jpg', alt: 'ヘッダー画像', class: 'header-image' %>
+
+<h1>店舗一覧</h1>
+
+<%= link_to '新しい店舗を登録する', new_store_path %>
+
+<ul>
+  <% @stores.each do |store| %>
+    <li>
+      <%= link_to store.name, store_path(store) %>
+      <%= button_to 'データ削除', store_path(store), method: :delete, data: {confirm: '本当に削除しますか？'}, class: 'delete-button' %>
+    </li>
+  <% end %>
+</ul>
+
+
+
+

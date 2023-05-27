@@ -1,0 +1,21 @@
+<h1>新しい店舗を登録する</h1>
+
+<%= form_with model: @store, local: true do |form| %>
+  <div>
+    <%= form.label :name, '店舗名' %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :rating, '星評価' %>
+    <%= form.number_field :rating, step: 0.1, min: 0, max: 5 %>
+  </div>
+  <div>
+    <%= form.label :hours, '営業時間' %>
+    <%= form.text_field :hours %>
+  </div>
+  <div>
+    <%= form.submit '登録する' %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', stores_path %>
